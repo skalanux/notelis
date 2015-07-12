@@ -1,0 +1,10 @@
+web:
+    image: codenvy/angular-yeoman
+    command: python -m SimpleHTTPServer 9005
+    volumes:
+        - ./src:/opt/frontend
+    ports:
+        - "3000:3000"
+    net:
+        host
+    dns: 8.8.8.8
