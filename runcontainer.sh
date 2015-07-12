@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run -it -d --name=notelis -p 3000:3000 -p 9005:9005 -v /home/ska/Proyectos/notelis/src/:/opt/frontend codenvy/angular-yeoman python -m SimpleHTTPServer 9005
+docker run -it -d --name=notelis --net=host -v /home/ska/Proyectos/notelis/src/:/home/user/application codenvy/angular-yeoman python -m SimpleHTTPServer 9005
