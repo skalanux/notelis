@@ -8,7 +8,7 @@
  * Controller of the applicationApp
  */
 angular.module('applicationApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl', function ($scope, pouchdb) {
   $scope.notes = [
     'Note 1',
     'Note 2',
@@ -16,7 +16,6 @@ angular.module('applicationApp')
   ];
 
   $scope.addNote = function () {
-    console.log('Solo pasaba por aqui');
     $scope.notes.push($scope.note);
     $scope.note = '';
   };
