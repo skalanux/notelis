@@ -25,11 +25,11 @@ angular.module('applicationApp')
   $scope.notes = [];
   $scope.logs = [];
 
-  $scope.addNote = function () {
-   var note = $scope.note;
+  $scope.addNote = function (note) {
     var doc = {
       type: 'note',
       title: note.title,
+      body: note.body,
       done: false,
       createdAt: new Date().getTime(),
       _id: new Date().toISOString()
@@ -43,7 +43,7 @@ angular.module('applicationApp')
           });
       });
     note.title = '';
-    $scope.note = '';
+    note.body = '';
   };
 
   $scope.delete = function (doc, index) {
