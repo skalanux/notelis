@@ -43,6 +43,7 @@ angular.module('applicationApp')
           });
       });
     note.title = '';
+    $scope.note = '';
   };
 
   $scope.delete = function (doc, index) {
