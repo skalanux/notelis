@@ -23,7 +23,6 @@ angular.module('applicationApp')
 */
 
   $scope.notes = [];
-  $scope.logs = [];
 
   $scope.addNote = function (note) {
     var doc = {
@@ -38,7 +37,7 @@ angular.module('applicationApp')
       .then(function (note) {
         pouchdb.get(note.id)
           .then(function(note){
-            $scope.notes.push({doc: note});
+            $scope.notes.push(note);
             $rootScope.$apply();
           });
       });
@@ -79,15 +78,55 @@ angular.module('applicationApp')
       });
   };
 
+  pouchdb.changes({
+      live: true,
+      onChange: function (change) {
+        if (!change.deleted) {
+          pouchdb.get(change.id, function(err, doc) {
+            if (err) console.log(err);
+            $scope.$apply(function() { //UPDATE
+              for (var i = 0; i < $scope.notes.length; i++) {
+                if ($scope.notes[i]._id === doc._id) {
+                  $scope.notes[i] = doc;
+                  return;
+                }
+              } // CREATE / READ
+              $scope.notes.push(doc);
+            });
+          })
+        } else { //DELETE
+          $scope.$apply(function () {
+            for (var i = 0; i<$scope.notes.length; i++) {
+              if ($scope.notes[i]._id === change.id) {
+                $scope.notes.splice(i,1);
+              }
+            }
+          })
+        }
+      }
+    });
+
+
+/*
   $scope.logsListener = (function () {
     pouchdb.changes({
       live: true
     }).on('change', function(change) {
-      $scope.logs.push(change);
+
+
+
+
+
+
+      $scope.notes.push(change['changes'][0]);
       $rootScope.$apply();
+
+
+
+
     });
   })();
-
+*/
   $scope.getAll();
 
 
