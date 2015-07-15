@@ -1,23 +1,30 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-4">
+
+      <p class="form-group" ng-repeat="note in notes">
+      <a>{{ note.title }}</a>
+      </p>
+
+    </div>
+
+    <div class="col-sm-8">
       <form role="form" ng-submit="addNote(note)">
-        <div class="row">
-          <div class="input-group">
-            <input type="text" ng-model="note.title" placeholder="Title" class="form-control">
-            <input type="text" ng-model="note.body" placeholder="What are you thinking?" class="form-control">
-            <span class="input-group-btn">
-              <input type="submit" class="btn btn-primary" value="Add">
-            </span>
-          </div>
+        <span class="input-group-btn pull-right">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+
+        <div class="input-group">
+          <input type="text" ng-model="note.title" placeholder="Title" class="form-control" />
+          <textarea  rows="20" cols="50" ng-model="note.body" placeholder="What are you thinking?" class="form-control" />
         </div>
+
       </form>
 
-<div class="jumbotron">
-
-
-  <div class="container">
-    <p class="form-group" ng-repeat="note in notes">
-    <input type="text" ng-model="note.title" class="form-control">
-    <textarea  ng-model="note.body" class="form-control">
-    </p>
+    </div>
   </div>
 
+
 </div>
+
