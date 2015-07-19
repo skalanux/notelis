@@ -9,18 +9,6 @@
  */
 angular.module('applicationApp')
 .controller('MainCtrl', function ($scope, $rootScope, pouchdb) {
-/*
-  $scope.notes = [
-    'Note 1',
-    'Note 2',
-    'Note 3'
-  ];
-
-  $scope.addNote = function () {
-    $scope.notes.push($scope.note);
-    $scope.note = '';
-  };
-*/
 
   $scope.notes = [];
 
@@ -106,27 +94,6 @@ angular.module('applicationApp')
       }
     });
 
-
-/*
-  $scope.logsListener = (function () {
-    pouchdb.changes({
-      live: true
-    }).on('change', function(change) {
-
-
-
-
-
-
-      $scope.notes.push(change['changes'][0]);
-      $rootScope.$apply();
-
-
-
-
-    });
-  })();
-*/
   $scope.getAll();
 
 
