@@ -4,7 +4,7 @@
     <div class="col-sm-4">
 
       <p class="form-group" ng-repeat="note in notes">
-      <a  ng-click="new_note.title = note.title;new_note.body = note.body">{{ note.title }}</a>
+      <a ng-click="editNote(note);">{{ note.title }}</a>
       </p>
 
     </div>
@@ -24,7 +24,4 @@
 
     </div>
   </div>
-
-
 </div>
-

@@ -11,7 +11,7 @@ angular.module('applicationApp')
 .controller('MainCtrl', function ($scope, $rootScope, pouchdb) {
 
   $scope.notes = [];
-  $scope.new_note = ''
+  $scope.new_note = {'title':"" ,'body':""};
   $scope.addNote = function (note) {
     var doc = {
       type: 'note',
@@ -42,6 +42,11 @@ angular.module('applicationApp')
       $scope.notes.splice(index, 1);
       $rootScope.$apply();
     });
+  };
+
+  $scope.editNote = function (note) {
+    $scope.new_note.title = note.title;
+    $scope.new_note.body = note.body;
   };
 
   $scope.edit = function (note) {
