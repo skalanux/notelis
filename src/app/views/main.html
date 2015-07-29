@@ -10,14 +10,14 @@
     </div>
 
     <div class="col-sm-8">
-      <form role="form" ng-submit="addNote(new_note)">
+      <form role="form" ng-submit="addNote(newNote)">
         <span class="input-group-btn pull-right">
           <input type="submit" class="btn btn-primary" value="Add">
         </span>
 
         <div class="input-group">
-          <input type="text" ng-model="new_note.title" placeholder="Title" class="form-control" />
-          <textarea  rows="20" cols="50" ng-model="new_note.body" placeholder="What are you thinking?" class="form-control" />
+          <input type="text" ng-model="newNote.title" placeholder="Title" class="form-control" />
+          <textarea  rows="20" cols="50" ng-model="newNote.body" placeholder="What are you thinking?" class="form-control" />
         </div>
 
       </form>
